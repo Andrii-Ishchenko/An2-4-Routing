@@ -2,26 +2,32 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { TasksModule } from './tasks/tasks.module';
 import { Router } from '@angular/router';
+
 import { AppRoutingModule, appRouterComponents } from './app.routing.module';
+import { TasksModule } from './tasks/tasks.module';
+import { UsersModule } from './users/users.module';
 
 import { AppComponent } from './app.component';
+import { MessagesService } from './services';
+import { MessagesComponent } from './components';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-	appRouterComponents
+	appRouterComponents,
+	MessagesComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
 	HttpModule,
-	AppRoutingModule,
-	TasksModule
+	TasksModule,
+	UsersModule,
+	AppRoutingModule
   ],
-  providers: [],
+  providers: [MessagesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { 
